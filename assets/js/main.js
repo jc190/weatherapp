@@ -24,23 +24,23 @@ $(document).ready(function() {
     weather: {
       setIcon: function(weatherCondition) {
         if (/cloud/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/cloudy.jpg\')');
+          $('bg-img').css('backgound', 'url("http://jtcstudio.com/images/cloudy.jpg")');
           return '<span class="typcn typcn-weather-cloudy"></span>';
         }
         if (/rain/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/rain.jpg\')');
+          $('bg-img').css('backgound', 'url("http://jtcstudio.com/images/rain.jpg")');
           return '<span class="typcn typcn-weather-shower"></span>';
         }
         if (/clear/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/sunny.jpg\')');
+          $('bg-img').css('backgound', 'url("http://jtcstudio.com/images/sunny.jpg")');
           return '<span class="typcn typcn-weather-sunny"></span>';
         }
         if (/storm/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/linghtning.jpg\')');
+          $('bg-img').css('backgound', 'url("http://jtcstudio.com/images/linghtning.jpg")');
           return '<span class="typcn typcn-weather-stormy"></span>';
         }
         if (/snow/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/snow.jpg\')');
+          $('bg-img').css('backgound', 'url("http://jtcstudio.com/images/snow.jpg")');
           return '<span class="typcn typcn-weather-snow"></span>';
         }
       },
