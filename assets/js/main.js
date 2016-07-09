@@ -58,6 +58,7 @@ $(document).ready(function() {
       this.coords.long = Math.round(position.coords.longitude * 100) / 100;
     },
     updateWeather: function(data) {
+      console.log(data);
       this.weather.icon = this.weather.setIcon(data['current_observation']['weather']);
       this.weather.location = data['current_observation']['display_location']['full'];
       this.weather.date = data['current_observation']['observation_time_rfc822'];
@@ -80,6 +81,7 @@ $(document).ready(function() {
         url: this.setURL(),
         dataType: 'jsonp',
         success: function(data) {
+          console.log(data);
           this.updateWeather(data);
           this.domElement.html(this.html);
         }.bind(this)
