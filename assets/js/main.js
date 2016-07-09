@@ -12,7 +12,7 @@ $(document).ready(function() {
     html: function() {
       return '<div class="weather-card-header">'
         + '<h1 class="weather-icon">' + this.weather.icon + '</h1></div>'
-        + '<h3 id="location">' + this.weather.location + '</h3>'
+        + '<h3 id="location" class="location">' + this.weather.location + '</h3>'
         + '<p id="weather-date">' + this.weather.date + '</p>'
         + '<h1 class="temp"><span id="weather-temp">' + this.weather.temp + '</span>'
         + '<span id="weather-deg">&degF</span></h1>'
