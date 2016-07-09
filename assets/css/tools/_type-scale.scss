@@ -1,0 +1,30 @@
+// Set ratios here - Current: Golden Ratio
+$type-scale: (
+  -1: 0.618rem,
+  0: 1rem,
+  1: 1.618rem,
+  2: 2.618rem
+);
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+
+$line-heights: (
+  -1: $base-line-height,
+  0: $base-line-height,
+  1: $base-line-height * 2,
+  2: $base-line-height * 2
+);
+
+@function line-height($level) {
+  @return map-get($line-heights, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}

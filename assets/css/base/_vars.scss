@@ -1,0 +1,23 @@
+// variables go here
+
+// Fonts
+$primaryFont: 'Open Sans';
+$titleFont: 'Open Sans';
+$textFont: 'Open Sans';
+
+// Colors
+$primaryColor: blue;
+$secondaryColor: orange;
+
+$grayScale: (
+  1: #222,
+  2: #333,
+  3: #555,
+  4: #999,
+  5: #eee,
+  6: #f7f7f7
+);
+
+@function gray-scale($level) {
+  @return map-get($grayScale, $level);
+}
