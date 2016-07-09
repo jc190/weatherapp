@@ -1,1 +1,49 @@
-'My page' 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Uncomment line below if you need support for ie8/ie9 -->
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The 3 meta tags above must come before anything else -->
+    <title>Weather App</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- Style links -->
+    <link rel="stylesheet" href="assets/css/style.css" media="screen" charset="utf-8">
+    <!-- <link rel="stylesheet" href="http://basehold.it/20"> -->
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <div class="flex-container">
+      <div class="flex-spacer"></div>
+      <div id="weather-app">
+        <div class="bg-img"></div>
+        <div class="content card">
+          <div class="weather-card-header">
+            <h1 class="weather-icon"><span class="typcn typcn-weather-shower"></span></h1>
+          </div>
+          <h3 class="location">York, PA</h3>
+          <p id="weather-date">Wed July 6th 2016, 11:23am</p>
+          <h1 class="temp"><span id="weather-temp">87<span id="weather-deg">&degF<span></span></h1>
+            <h4>Current Conditions:</h4>
+            <p id="weather-condition">Rain</p>
+            <h4>Wind:</h4>
+            <p id="weather-wind">5mph East</p>
+            <h4>Precipitation:</h4>
+            <p id="weather-precip">50%</p>
+            <p class="card-footer"><a id="weather-link" href="">Full Report</a></p>
+        </div>
+      </div>
+      <div class="flex-spacer"></div>
+    </div>
+    <footer>
+
+    </footer>
+    <script src="assets/js/jquery-3.0.0.min.js" charset="utf-8"></script>
+    <script src="assets/js/main.js" charset="utf-8"></script>
+  </body>
+</html>
