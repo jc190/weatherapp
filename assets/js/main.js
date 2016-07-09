@@ -67,6 +67,7 @@ $(document).ready(function() {
       this.weather.wind = data['current_observation']['wind_string'];
       this.weather.precip = data['current_observation']['precip_today_string'];
       this.weather.link = data['current_observation']['forecast_url'];
+      console.log(this.weather);
     },
     init: function() {
       if (!navigator.geolocation) {
@@ -82,8 +83,10 @@ $(document).ready(function() {
         dataType: 'jsonp',
         success: function(data) {
           console.log(data);
+          console.log(this.weather);
           this.updateWeather(data);
-          this.domElement.html(this.html);
+          console.log(this.weather);
+          this.domElement.html(this.html());
         }.bind(this)
       });
     },
