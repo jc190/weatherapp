@@ -1826,4 +1826,7 @@ body {
   font-weight: bold;
   line-height: 3rem; }
 
+.weather-error {
+  padding: 1rem; }
+
 /*# sourceMappingURL=style.css.map */

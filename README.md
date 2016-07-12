@@ -1,2 +1,3 @@
 # weatherapp
-Weather App utilizing javascript geolocating api and wunground's weather api
+A weather application utilizing the javascript geolocation api and wunground.com's weather api.
+Application design based off Google's material design theory.

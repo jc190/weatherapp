@@ -12,10 +12,10 @@ $(document).ready(function() {
     html: function() {
       return '<div class="weather-card-header">'
         + '<h1 class="weather-icon">' + this.weather.icon + '</h1></div>'
-        + '<h3 id="location">' + this.weather.location + '</h3>'
+        + '<h3 id="location" class="location">' + this.weather.location + '</h3>'
         + '<p id="weather-date">' + this.weather.date + '</p>'
         + '<h1 class="temp"><span id="weather-temp">' + this.weather.temp + '</span>'
-        + '<span id="weather-deg">&degF</span></h1>'
+        + '<span id="weather-deg">&deg<a id="deg-type" href="#">F</a></span></h1>'
         + '<h4>Current Conditions:</h4><p id="weather-condition">' + this.weather.condition + '</p>'
         + '<h4>Wind:</h4><p id="weather-wind">' + this.weather.wind + '</p>'
         + '<h4>Precipitation:</h4><p id="weather-precip">' + this.weather.precip + '</p>'
@@ -25,7 +25,7 @@ $(document).ready(function() {
       setIcon: function(weatherCondition) {
         if (/cloud/gi.test(weatherCondition)) {
           $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/cloudy.jpg\')');
-          return '<span class="typcn typcn-weather-shower"></span>';
+          return '<span class="typcn typcn-weather-cloudy"></span>';
         }
         if (/rain/gi.test(weatherCondition)) {
           $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/rain.jpg\')');
@@ -33,15 +33,15 @@ $(document).ready(function() {
         }
         if (/clear/gi.test(weatherCondition)) {
           $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/sunny.jpg\')');
-          return '<span class="typcn typcn-weather-shower"></span>';
+          return '<span class="typcn typcn-weather-sunny"></span>';
         }
         if (/storm/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/linghtning.jpg\')');
-          return '<span class="typcn typcn-weather-shower"></span>';
+          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/lightning.jpg\')');
+          return '<span class="typcn typcn-weather-stormy"></span>';
         }
         if (/snow/gi.test(weatherCondition)) {
           $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/snow.jpg\')');
-          return '<span class="typcn typcn-weather-shower"></span>';
+          return '<span class="typcn typcn-weather-snow"></span>';
         }
       },
       icon: '',
@@ -69,7 +69,7 @@ $(document).ready(function() {
     },
     init: function() {
       if (!navigator.geolocation) {
-        this.domElement.html('<h1>Geolocation is not supported by your browser</h1>');
+        this.domElement.html('<h3 class="weather-error">Geolocation is not supported by your browser</h3>');
         return;
       }
       navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error.bind(this));
@@ -86,9 +86,8 @@ $(document).ready(function() {
       });
     },
     error: function() {
-      this.domElement.html('<h3>Oops something went wrong... Try again shortly.</h3>');
+      this.domElement.html('<h3 class="weather-error">Oops something went wrong... Try again shortly.</h3>');
     }
   };
-
   WeatherApp.init();
 });
