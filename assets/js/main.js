@@ -80,7 +80,7 @@ $(document).ready(function() {
         url: this.setURL(),
         dataType: 'jsonp',
         success: function(data) {
-          this.updateWeather();
+          this.updateWeather(data);
           this.domElement.html(this.html);
         }.bind(this)
       });
