@@ -81,7 +81,7 @@ $(document).ready(function() {
         dataType: 'jsonp',
         success: function(data) {
           this.updateWeather(data);
-          this.domElement.html(this.html);
+          this.domElement.html(this.html());
         }.bind(this)
       });
     },
