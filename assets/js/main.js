@@ -24,23 +24,23 @@ $(document).ready(function() {
     weather: {
       setIcon: function(weatherCondition) {
         if (/cloud/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/cloudy.jpg\')');
+          $('.bg-img').css('background-image', 'url(\'http://jtcstudio.com/images/cloudy.jpg\')');
           return '<span class="typcn typcn-weather-cloudy"></span>';
         }
         if (/rain/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/rain.jpg\')');
+          $('.bg-img').css('background-image', 'url(\'http://jtcstudio.com/images/rain.jpg\')');
           return '<span class="typcn typcn-weather-shower"></span>';
         }
         if (/clear/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/sunny.jpg\')');
+          $('.bg-img').css('background-image', 'url(\'http://jtcstudio.com/images/sunny.jpg\')');
           return '<span class="typcn typcn-weather-sunny"></span>';
         }
         if (/storm/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/lightning.jpg\')');
+          $('.bg-img').css('background-image', 'url(\'http://jtcstudio.com/images/lightning.jpg\')');
           return '<span class="typcn typcn-weather-stormy"></span>';
         }
         if (/snow/gi.test(weatherCondition)) {
-          $('bg-img').css('backgound', 'url(\'http://jtcstudio.com/images/snow.jpg\')');
+          $('.bg-img').css('background-image', 'url(\'http://jtcstudio.com/images/snow.jpg\')');
           return '<span class="typcn typcn-weather-snow"></span>';
         }
       },
@@ -80,8 +80,8 @@ $(document).ready(function() {
         url: this.setURL(),
         dataType: 'jsonp',
         success: function(data) {
-          this.updateWeather();
-          this.domElement.html(this.html);
+          this.updateWeather(data);
+          this.domElement.html(this.html());
         }.bind(this)
       });
     },
