@@ -96,8 +96,8 @@ $(document).ready(function() {
           this.domElement.html(this.html());
           $('#deg-type').on('click', function(event) {
             event.preventDefault();
-            this.convertTemp(this.weather.temp, this.weather.tempType).bind(this);
-          }).bind(this);
+            this.convertTemp(this.weather.temp, this.weather.tempType);
+          });
         }.bind(this)
       });
     },
