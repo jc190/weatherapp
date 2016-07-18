@@ -11,11 +11,11 @@ $(document).ready(function() {
     },
     convertTemp: function(tempNum, tempType) {
       if (tempType === 'F') {
-        this.weather.temp = Math.floor((tempNum - 32) * (5/9));
+        this.weather.temp = Math.ceil((((tempNum - 32) * (5/9)) * 100) / 100);
         this.weather.tempType = 'C';
       }
       if (tempType === 'C') {
-        this.weather.temp = Math.floor(tempNum * (9/5) + 32);
+        this.weather.temp = Math.ceil(((tempNum * (9/5) + 32) * 100) / 100);
         this.weather.tempType = 'F';
       }
       this.domElement.html(this.html());
