@@ -98,7 +98,7 @@ $(document).ready(function() {
             event.preventDefault();
             console.log(this.weather);
             this.convertTemp(this.weather.temp, this.weather.tempType);
-          });
+          }.bind(this));
         }.bind(this)
       });
     },
