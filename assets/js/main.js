@@ -11,7 +11,7 @@ $(document).ready(function() {
     },
     convertTemp: function(tempNum, tempType) {
       if (tempType === 'F') {
-        this.weather.temp = Math.floor((tempNum - 32) * (9/5));
+        this.weather.temp = Math.floor((tempNum - 32) * (5/9));
         this.weather.tempType = 'C';
       }
       if (tempType === 'C') {
