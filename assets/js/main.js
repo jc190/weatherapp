@@ -85,8 +85,8 @@ $(document).ready(function() {
         }.bind(this)
       });
     },
-    error: function() {
-      this.domElement.html('<h3 class="weather-error">Oops something went wrong... Try again shortly.</h3>');
+    error: function(PositionError) {
+      this.domElement.html('<h3 class="weather-error">Oops something went wrong... Try again shortly.</h3> <p>'+ PositionError.code +': ' + PositionError.message + '</p>');
     }
   };
   WeatherApp.init();
