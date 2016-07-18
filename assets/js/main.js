@@ -96,6 +96,7 @@ $(document).ready(function() {
           this.domElement.html(this.html());
           $('#deg-type').on('click', function(event) {
             event.preventDefault();
+            console.log(this.weather);
             this.convertTemp(this.weather.temp, this.weather.tempType);
           });
         }.bind(this)
