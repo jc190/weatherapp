@@ -29,11 +29,12 @@ body {
   z-index: -1;
   overflow: hidden;
   transform: scale(1.03);
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('http://jtcstudio.com/images/rain.jpg');
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('');
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-color: #333;
   display: block;
   height: 100%;
   width: 100%;
