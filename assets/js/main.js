@@ -9,13 +9,28 @@ $(document).ready(function() {
       lat: '',
       long: ''
     },
+    convertTemp: function(tempNum, tempType) {
+      if (tempType === 'F') {
+        this.weather.temp = Math.round((((tempNum - 32) / 1.8) * 10)) / 10;
+        this.weather.tempType = 'C';
+      }
+      if (tempType === 'C') {
+        this.weather.temp = Math.round(((tempNum * 1.8 + 32) * 10)) / 10;
+        this.weather.tempType = 'F';
+      }
+      this.domElement.html(this.html());
+      $('#deg-type').on('click', function(event) {
+        event.preventDefault();
+        this.convertTemp(this.weather.temp, this.weather.tempType);
+      }.bind(this));
+    },
     html: function() {
       return '<div class="weather-card-header">'
         + '<h1 class="weather-icon">' + this.weather.icon + '</h1></div>'
         + '<h3 id="location" class="location">' + this.weather.location + '</h3>'
         + '<p id="weather-date">' + this.weather.date + '</p>'
         + '<h1 class="temp"><span id="weather-temp">' + this.weather.temp + '</span>'
-        + '<span id="weather-deg">&deg<a id="deg-type" href="#">F</a></span></h1>'
+        + '<span id="weather-deg">&deg<a id="deg-type" href="#">' + this.weather.tempType + '</a></span></h1>'
         + '<h4>Current Conditions:</h4><p id="weather-condition">' + this.weather.condition + '</p>'
         + '<h4>Wind:</h4><p id="weather-wind">' + this.weather.wind + '</p>'
         + '<h4>Precipitation:</h4><p id="weather-precip">' + this.weather.precip + '</p>'
@@ -51,7 +66,8 @@ $(document).ready(function() {
       condition: '',
       wind: '',
       precip: '',
-      link: ''
+      link: '',
+      tempType: 'F'
     },
     updateCoords: function(position) {
       this.coords.lat = Math.round(position.coords.latitude * 100) / 100;
@@ -82,11 +98,16 @@ $(document).ready(function() {
         success: function(data) {
           this.updateWeather(data);
           this.domElement.html(this.html());
+          $('#deg-type').on('click', function(event) {
+            event.preventDefault();
+            this.convertTemp(this.weather.temp, this.weather.tempType);
+          }.bind(this));
         }.bind(this)
       });
     },
-    error: function() {
-      this.domElement.html('<h3 class="weather-error">Oops something went wrong... Try again shortly.</h3>');
+    error: function(PositionError) {
+      this.domElement.html('<h3 class="weather-error">Oops something went wrong... Try again shortly.</h3> <p>'
+                          + PositionError.code +': ' + PositionError.message + '</p>');
     }
   };
   WeatherApp.init();
