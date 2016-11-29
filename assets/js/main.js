@@ -38,7 +38,7 @@ $(document).ready(function() {
     },
     weather: {
       setIcon: function(weatherCondition) {
-        if (/cloud/gi.test(weatherCondition)) {
+        if (/cloud|overcast/gi.test(weatherCondition)) {
           $('.bg-img').css('background-image', 'url(\'assets/images/cloudy.jpg\')');
           return '<span class="typcn typcn-weather-cloudy"></span>';
         }
